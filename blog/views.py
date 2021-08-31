@@ -8,15 +8,17 @@ class PostList(ListView):
     def get_queryset(self):
         return  Post.objects.order_by('-created')
 
-
+class PostDetail(DetailView):
+    model = Post
 # def index(request):
 #     object_list = Post.objects.all()
 #     context = {'object_list':object_list}
 #     return render(request, 'blog/post_list.html', context)
 
-def detail(request, pk):
-    post = Post.objects.get(pk=pk)
-    print(post)
-    context = {'post': post}
-    return render(request, 'blog/detail.html', context)
-    # return render(request, 'blog/detail.html', {'post': post})
+# def detail(request, pk):
+#     post = Post.objects.get(pk=pk)
+#     print(post)
+#     context = {'post': post}
+#     return render(request, 'blog/detail.html', context)
+#     # return render(request, 'blog/detail.html', {'post': post})
+
